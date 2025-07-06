@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="author" content="William Stearns">
-  <meta name="description" content="bioSite for CSD 340 Web Development with HTML and CSS at Bellevue University">
-  <meta name="keywords" content="HTML, CSS, Bellevue University, Assignment">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSD 340 Web Development with HTML and CSS</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Marjorie's Story</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Landing Page</h1>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+    </ul>
+  </nav>
 
-  <div id="navbar">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-  </div>
+  <main class="container">
+    <section class="section text-center">
+      <h1 class="mb-4">Welcome to Marjorie's Story</h1>
+      <p class="mb-4">Explore the life, passions, and proudest moments of Marjorie — a devoted mother, dedicated cook, and lifelong animal lover.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="text-center mb-4">Accomplishments & Milestones</h2>
+      <div class="grid-3">
+        <div>
+          <img src="images/ged.jpg" alt="Marjorie holding her GED certificate" />
+          <p class="image-caption"><strong>Education:</strong> Marjorie earned her GED later in life and even received a college scholarship.</p>
+        </div>
+        <div>
+          <img src="images/school-cook.jpg" alt="Marjorie serving lunch at school" />
+          <p class="image-caption"><strong>Career:</strong> She served as a school cook for 25 years, helping nourish thousands of students.</p>
+        </div>
+        <div>
+          <img src="images/show-win.jpg" alt="Marjorie and Duane with a horse show ribbon" />
+          <p class="image-caption"><strong>Miniature Horse Shows:</strong> She and her husband won multiple awards showing miniature horses around the country.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section text-center mt-4">
+      <a href="https://www.netflix.com" class="btn btn-secondary" target="_blank">Visit Netflix – one of Marjorie's favorite ways to relax</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Marjorie's bioSite | Created for class project</p>
+  </footer>
 </body>
 </html>
