@@ -1,4 +1,4 @@
-/* === CSS Reset & Base === */
+/* === Reset & Base === */
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +7,16 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #F9F8F6;
-  color: #33312C;
+  background-color: var(--light-bg);
+  color: var(--dark-charcoal);
   line-height: 1.6;
   padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* === Color Variables === */
+/* === Variables === */
 :root {
   --golden-yellow: #D9A729;
   --medium-blue: #435A99;
@@ -32,11 +35,11 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 h3 {
@@ -46,14 +49,14 @@ h3 {
 p {
   margin-bottom: 1em;
   font-size: 1rem;
-  color: var(--dark-charcoal);
 }
 
-/* === Layout Containers === */
+/* === Containers === */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
+  flex: 1;
 }
 
 .section {
@@ -64,6 +67,10 @@ p {
 nav {
   background-color: var(--dark-slate-blue);
   padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 nav ul {
@@ -80,10 +87,15 @@ nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
-nav ul li a:hover {
-  color: var(--golden-yellow);
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: var(--golden-yellow);
+  color: var(--dark-charcoal);
 }
 
 /* === Images === */
@@ -108,7 +120,7 @@ button, .btn {
   border-radius: 4px;
   cursor: pointer;
   font-weight: 700;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -136,6 +148,7 @@ button, .btn {
 a {
   color: var(--medium-blue);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
@@ -157,26 +170,21 @@ a:hover {
   gap: 30px;
 }
 
-/* === Utility Classes === */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Utility === */
 .text-center {
   text-align: center;
 }
 
-.mb-2 {
-  margin-bottom: 0.5em;
-}
-
-.mb-4 {
-  margin-bottom: 1.5em;
-}
-
-.mt-2 {
-  margin-top: 0.5em;
-}
-
-.mt-4 {
-  margin-top: 1.5em;
-}
+.mb-2 { margin-bottom: 0.5em; }
+.mb-4 { margin-bottom: 1.5em; }
+.mt-2 { margin-top: 0.5em; }
+.mt-4 { margin-top: 1.5em; }
 
 /* === Footer === */
 footer {
@@ -184,8 +192,9 @@ footer {
   padding: 20px 0;
   background-color: var(--olive-brown);
   color: #fff;
-  margin-top: 60px;
+  margin-top: auto;
 }
+
 footer p {
   margin: 0;
   font-size: 0.875rem;
